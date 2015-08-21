@@ -1,0 +1,27 @@
+{
+	"name": "adt/single-recipient-mailer",
+	"type": "library",
+	"description": "Mailer which sends all the emails to one address. Usable for testing purpose.",
+	"keywords": [],
+	"homepage": "http://appsdevteam.com",
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Apps Dev Team",
+			"homepage": "http://appsdevteam.com",
+			"email": "hello@appsdevteam.com"
+		}
+	],
+	"support": {
+		"email": "hello@appsdevteam.com",
+		"issues": "https://github.com/AppsDevTeam/SingleRecipientMailer/issues"
+	},
+	"require": {
+		"nette/nette": "~2.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"ADT\\SingleRecipientMailer\\": "src/"
+		}
+	}
+}
