@@ -1,6 +1,6 @@
 ## ADT\Mail\SingleRecipientMailer
 
-Mailer which sends all the emails to one address. Usable for testing purpose.
+Mailer which sends all the emails to one address. Usable for testing purpose. Original *To*, *Cc* and *Bcc* email addresses are stored in the subject of the email (for example: `To: origTo@example.com; origTo2@example.com; Cc: origCc@example.com | My email subject`).
 
 ## Installation
 
