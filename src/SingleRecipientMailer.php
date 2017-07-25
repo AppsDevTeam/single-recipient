@@ -2,36 +2,33 @@
 
 namespace ADT\Mail;
 
-class SingleRecipientMailer extends \Nette\Object implements \Nette\Mail\IMailer {
+use Nette\Mail;
 
-	protected $recipient;
 
-	/** @var \Nette\Mail\IMailer */
-	protected $mailer;
+class SingleRecipientMailer extends \Nette\Object implements Mail\IMailer {
 
-	public function __construct(array $options = array()) {
-		if (!empty($options['smtp'])) {
-			$this->mailer = new \Nette\Mail\SmtpMailer($options);
-		} else {
-			$this->mailer = new \Nette\Mail\SendmailMailer();
-		}
+	/** @var string|NULL */
+	protected $singleRecipient;
 
-		if (isset($options['singleRecipient'])) {
-			$this->recipient = $options['singleRecipient'];
-		}
+	/** @var Mail\IMailer */
+	protected $next;
+
+	public function __construct(Mail\IMailer $next, $singleRecipient = NULL) {
+		$this->next = $next;
+		$this->singleRecipient = $singleRecipient;
 	}
 
 	/**
 	 * Returns TRUE if single recipient is set.
 	 * @return bool
 	 */
-	public function isInDebugMode() {
-		return $this->recipient !== NULL;
+	public function hasSingleRecipient() {
+		return !!$this->singleRecipient;
 	}
 
-	public function send(\Nette\Mail\Message $mail) {
+	public function send(Mail\Message $mail) {
 
-		if ($this->isInDebugMode()) {
+		if ($this->hasSingleRecipient()) {
 			$mail = clone $mail;
 
 			$preSubject = ''
@@ -45,9 +42,9 @@ class SingleRecipientMailer extends \Nette\Object implements \Nette\Mail\IMailer
 
 			$mail->setSubject($preSubject . $mail->getSubject());
 
-			$mail->addTo($this->recipient);
+			$mail->addTo($this->singleRecipient);
 		}
 
-		$this->mailer->send($mail);
+		$this->next->send($mail);
 	}
 }
