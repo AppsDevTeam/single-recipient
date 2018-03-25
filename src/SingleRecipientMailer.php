@@ -45,6 +45,6 @@ class SingleRecipientMailer extends \Nette\Object implements Mail\IMailer {
 			$mail->addTo($this->singleRecipient);
 		}
 
-		$this->next->send($mail);
+		return $this->next->send($mail);
 	}
 }
