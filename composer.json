@@ -17,8 +17,7 @@
 		"issues": "https://github.com/AppsDevTeam/SingleRecipientMailer/issues"
 	},
 	"require": {
-		"nette/mail": "^2.2",
-		"nette/utils": "^2.2"
+		"nette/mail": "^2.2"
 	},
 	"autoload": {
 		"psr-4": {

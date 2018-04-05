@@ -5,7 +5,7 @@ namespace ADT\Mail;
 use Nette\Mail;
 
 
-class SingleRecipientMailer extends \Nette\Object implements Mail\IMailer {
+class SingleRecipientMailer implements Mail\IMailer {
 
 	/** @var string|NULL */
 	protected $singleRecipient;
