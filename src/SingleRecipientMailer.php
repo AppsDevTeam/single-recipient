@@ -45,6 +45,6 @@ class SingleRecipientMailer implements Mail\IMailer {
 			$mail->addTo($this->singleRecipient);
 		}
 
-		return $this->next->send($mail);
+		$this->next->send($mail);
 	}
 }
