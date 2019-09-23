@@ -26,7 +26,7 @@ class SingleRecipientMailer implements Mail\IMailer {
 		return !!$this->singleRecipient;
 	}
 
-	public function send(Mail\Message $mail) {
+	public function send(Mail\Message $mail): void {
 
 		if ($this->hasSingleRecipient()) {
 			$mail = clone $mail;
@@ -45,6 +45,6 @@ class SingleRecipientMailer implements Mail\IMailer {
 			$mail->addTo($this->singleRecipient);
 		}
 
-		return $this->next->send($mail);
+		$this->next->send($mail);
 	}
 }
