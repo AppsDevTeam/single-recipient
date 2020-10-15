@@ -5,15 +5,15 @@ namespace ADT\Mail;
 use Nette\Mail;
 
 
-class SingleRecipientMailer implements Mail\IMailer {
+class SingleRecipientMailer implements Mail\Mailer {
 
 	/** @var string|NULL */
 	protected $singleRecipient;
 
-	/** @var Mail\IMailer */
+	/** @var Mail\Mailer */
 	protected $next;
 
-	public function __construct(Mail\IMailer $next, $singleRecipient = NULL) {
+	public function __construct(Mail\Mailer $next, $singleRecipient = NULL) {
 		$this->next = $next;
 		$this->singleRecipient = $singleRecipient;
 	}
