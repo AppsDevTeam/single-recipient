@@ -20,13 +20,8 @@ Register `\ADT\Mail\SingleRecipientMailer` in your `config.neon` to use `@smtpMa
 redirect all emails to `developers@myProject.com`:
 ```neon
 services:
-	smtpMailer:
-		class: \Nette\Mail\SmtpMailer(%mailer%)
-		autowired: no # this is important
-	
 	nette.mailer:
-		class: \ADT\Mail\SingleRecipientMailer(@smtpMailer, 'developers@myProject.com')
-		
+		class: \ADT\Mail\SingleRecipientMailer(@yourMailer, 'developers@myProject.com')
 ```
 
 The `autowired: no` option is important because Nette DI container would not know
