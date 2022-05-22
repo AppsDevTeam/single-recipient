@@ -6,7 +6,7 @@ use Nette\Mail\Message;
 
 trait SingleRecipient
 {
-	public function initSingleRecipient(Message $mail, ?string $singleRecipient)
+	public function applySingleRecipient(Message $mail, ?string $singleRecipient)
 	{
 		$preSubject = ''
 			. (!empty($mail->getHeader('To')) ? 'To: ' . join('; ', array_keys($mail->getHeader('To'))) . ' ' : '')

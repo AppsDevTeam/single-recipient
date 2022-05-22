@@ -22,7 +22,7 @@ class SingleRecipientMailer implements Mailer
 	public function send(Message $mail): void
 	{
 		if ($this->singleRecipient) {
-			$this->initSingleRecipient($mail, $this->singleRecipient);
+			$this->applySingleRecipient($mail, $this->singleRecipient);
 		}
 
 		$this->next->send($mail);

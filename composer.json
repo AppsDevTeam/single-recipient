@@ -1,7 +1,7 @@
 {
 	"name": "adt/single-recipient-mailer",
 	"type": "library",
-	"description": "Mailer which sends all the emails to one address. Usable for testing purpose.",
+	"description": "Component modifies `Nette\\Mail\\Message` to send all the emails to one address. Sutaible for non production environments.",
 	"keywords": [],
 	"license": ["MIT"],
 	"authors": [
