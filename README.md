@@ -1,4 +1,4 @@
-## ADT\Mail\SingleRecipientMailer
+## Single Recipient
 
 Component modifies `Nette\Mail\Message` to send all the emails to one address. Suitable for non production environments.
 
