@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": "^7.4|^8.0",
-		"nette/mail": "^3.0"
+		"nette/mail": "^2.4|^3.0"
 	},
 	"autoload": {
 		"psr-4": {
